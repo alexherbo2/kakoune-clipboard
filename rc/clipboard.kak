@@ -38,7 +38,7 @@ define-command -override clipboard-paste-linewise -params .. %{
   }
 }
 
-declare-user-mode clipboard
+try %[ declare-user-mode clipboard ]
 map -docstring 'yank joined selections into system clipboard' global clipboard y ': clipboard-yank<ret>'
 map -docstring 'paste system clipboard after selections (characterwise)' global clipboard p ': clipboard-paste-characterwise p<ret>'
 map -docstring 'paste system clipboard before selections (characterwise)' global clipboard <a-p> ': clipboard-paste-characterwise P<ret>'
