@@ -23,7 +23,7 @@ declare-option str-list clipboard_paste_args '--no-newline'
 define-command -override clipboard-yank %{
   nop %sh{
     printf 'echo -to-file %%(%s) -- "%%val{selections}"' "$kak_response_fifo" > "$kak_command_fifo"
-    tr '\0' '\n' < "$kak_response_fifo" | eval "$kak_quoted_opt_clipboard_copy_command" "$kak_quoted_opt_clipboard_copy_args" > /dev/null 2>&1 &
+    tr '\0' '\n' < "$kak_response_fifo" | sed 's/\\\\/\\/g' | eval "$kak_quoted_opt_clipboard_copy_command" "$kak_quoted_opt_clipboard_copy_args" > /dev/null 2>&1 &
   }
 }
 
