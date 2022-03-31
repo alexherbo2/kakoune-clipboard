@@ -27,15 +27,15 @@ define-command -override clipboard-yank %{
   }
 }
 
-define-command -override clipboard-paste-append -params .. %{
+define-command -override clipboard-paste-append %{
   execute-keys '<a-!> %opt{clipboard_paste_command}<a-!> %opt{clipboard_paste_args}<a-!><ret><a-;>'
 }
 
-define-command -override clipboard-paste-insert -params .. %{
+define-command -override clipboard-paste-insert %{
   execute-keys '! %opt{clipboard_paste_command}<a-!> %opt{clipboard_paste_args}<a-!><ret>'
 }
 
-define-command -override clipboard-paste-replace -params .. %{
+define-command -override clipboard-paste-replace %{
   execute-keys '| %opt{clipboard_paste_command}<a-!> %opt{clipboard_paste_args}<a-!><ret>'
 }
 
