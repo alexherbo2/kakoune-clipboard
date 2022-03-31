@@ -39,10 +39,7 @@ define-command -override clipboard-paste-replace -params .. %{
   execute-keys '| %opt{clipboard_paste_command}<a-!> %opt{clipboard_paste_args}<a-!><ret>'
 }
 
-try %[ declare-user-mode clipboard ]
-map -docstring 'yank joined selections into system clipboard' global clipboard y ': clipboard-yank<ret>'
-map -docstring 'paste system clipboard after selections' global clipboard p ': clipboard-paste-append<ret>'
-map -docstring 'paste system clipboard before selections' global clipboard P ': clipboard-paste-insert<ret>'
-map -docstring 'replace selections with content of system clipboard' global clipboard R ': clipboard-paste-replace<ret>'
-
-map -docstring 'enter clipboard mode' global user x ': enter-user-mode clipboard<ret>'
+map -docstring 'yank joined selections into system clipboard' global user y ': clipboard-yank<ret>'
+map -docstring 'paste system clipboard after selections' global user p ': clipboard-paste-append<ret>'
+map -docstring 'paste system clipboard before selections' global user P ': clipboard-paste-insert<ret>'
+map -docstring 'replace selections with content of system clipboard' global user R ': clipboard-paste-replace<ret>'
