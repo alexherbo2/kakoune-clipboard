@@ -13,12 +13,24 @@
 # PasteMode::Replace
 #
 # declare-option str-list clipboard_copy_command 'pbcopy'
+# declare-option str-list clipboard_copy_args
 # declare-option str-list clipboard_paste_command 'pbpaste'
-declare-option str clipboard_copy_command 'wl-copy'
-declare-option str-list clipboard_copy_args
+# declare-option str-list clipboard_paste_args
+#
+# declare-option str clipboard_copy_command 'xsel'
+# declare-option str-list clipboard_copy_args '--input' '--clipboard'
+# declare-option str clipboard_paste_command 'xsel'
+# declare-option str-list clipboard_paste_args '--output' '--clipboard'
+#
+# declare-option str clipboard_copy_command 'wl-copy'
+# declare-option str-list clipboard_copy_args
+# declare-option str clipboard_paste_command 'wl-paste'
+# declare-option str-list clipboard_paste_args '--no-newline'
 
-declare-option str clipboard_paste_command 'wl-paste'
-declare-option str-list clipboard_paste_args '--no-newline'
+declare-option str clipboard_copy_command ''
+declare-option str-list clipboard_copy_args
+declare-option str clipboard_paste_command ''
+declare-option str-list clipboard_paste_args
 
 define-command -override clipboard-yank %{
   nop %sh{
